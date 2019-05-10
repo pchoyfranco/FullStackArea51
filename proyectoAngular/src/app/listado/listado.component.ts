@@ -1,3 +1,4 @@
+import { DataService } from '../servicios/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
-  constructor() { }
+  data: Array<{}>
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.data = this.dataService.listar()
+
+    this.dataService.onCambioData
+      .subscribe(
+        elementos => this.data = elementos
+      )
   }
 
 }
