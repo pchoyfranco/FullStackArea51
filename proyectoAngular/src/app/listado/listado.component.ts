@@ -27,4 +27,8 @@ export class ListadoComponent implements OnInit {
     this.onCambiarVista.emit(3)
   }
 
+  finalizar(num) {
+    this.onCambiarVista.emit(num)
+  }
+
 }
