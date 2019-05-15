@@ -1,2 +1,4 @@
-<app-login *ngIf="mostrar" (onLogin)="mostrar=false"></app-login>
-<app-listado *ngIf="!mostrar"></app-listado>
+<app-login *ngIf="mostrar==1" (onLogin)="mostrar=2"></app-login>
+<app-listado *ngIf="mostrar==2" (onCambiarVista)="mostrar=$event"></app-listado>
+<app-nuevo *ngIf="mostrar==3" (onFinalizar)="mostrar=2"></app-nuevo>
+<app-modificar *ngIf="mostrar==4" (onFinalizar)="mostrar=2"></app-modificar>

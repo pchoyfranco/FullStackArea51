@@ -1,5 +1,6 @@
 import { DataService } from '../servicios/data.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { IReceta } from '../modelos/receta';
 
 @Component({
   selector: 'app-receta',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecetaComponent implements OnInit {
 
-  @Input() receta: {}
+  @Input() receta: IReceta
   @Input() indice: number
 
   constructor(private dataService: DataService) { }
