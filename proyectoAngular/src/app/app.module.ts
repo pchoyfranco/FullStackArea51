@@ -8,6 +8,15 @@ import { RecetaComponent } from './receta/receta.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { ModificarComponent } from './modificar/modificar.component';
 import { FormsModule } from "@angular/forms"
+import { RouterModule, Routes } from "@angular/router"
+
+const rutas: Routes = [
+  { path: "", component: LoginComponent },
+  { path: "listado", component: ListadoComponent },
+  { path: "agregar", component: NuevoComponent },
+  { path: "modificar/:id", component: ModificarComponent },
+  { path: "**", redirectTo: "" }
+]
 
 @NgModule({
   declarations: [
@@ -20,7 +29,8 @@ import { FormsModule } from "@angular/forms"
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(rutas)
   ],
   providers: [],
   bootstrap: [AppComponent]
