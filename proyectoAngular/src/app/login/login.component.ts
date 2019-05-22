@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   @Output() onLogin: EventEmitter<any> = new EventEmitter<any>()
 
-  constructor() { }
+  constructor(private ruta: Router) { }
 
   ngOnInit() {
   }
@@ -27,8 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
+    this.ruta.navigate(["/listado"])
     /* alert(this.usuario + " " + this.contrasena) */
-    this.onLogin.emit()
+    //this.onLogin.emit()
   }
 
 }

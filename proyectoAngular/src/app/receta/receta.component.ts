@@ -1,6 +1,7 @@
 import { DataService } from '../servicios/data.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IReceta } from '../modelos/receta';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-receta',
@@ -14,7 +15,7 @@ export class RecetaComponent implements OnInit {
 
   @Output() onFinalizar: EventEmitter<number> = new EventEmitter<number>()
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private ruta: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +25,8 @@ export class RecetaComponent implements OnInit {
   }
 
   modificar() {
-    this.onFinalizar.emit(4)
+    this.ruta.navigate(["/modificar", this.indice])
+    //this.onFinalizar.emit(4)
   }
 
 }

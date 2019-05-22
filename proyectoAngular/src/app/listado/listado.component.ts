@@ -1,6 +1,7 @@
 import { DataService } from '../servicios/data.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IReceta } from '../modelos/receta';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado',
@@ -12,7 +13,7 @@ export class ListadoComponent implements OnInit {
   data: Array<IReceta>
   @Output() onCambiarVista: EventEmitter<number> = new EventEmitter<number>()
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private ruta: Router) { }
 
   ngOnInit() {
     this.data = this.dataService.listar()
@@ -24,7 +25,8 @@ export class ListadoComponent implements OnInit {
   }
 
   nuevaReceta() {
-    this.onCambiarVista.emit(3)
+    this.ruta.navigate(["/agregar"])
+    //this.onCambiarVista.emit(3)
   }
 
   finalizar(num) {

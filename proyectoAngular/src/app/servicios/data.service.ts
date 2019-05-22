@@ -31,4 +31,13 @@ export class DataService {
     this.data.push(receta)
     this.onCambioData.emit(this.data)
   }
+
+  editar(id: number): IReceta {
+    const receta = Object.assign({}, this.data[id])
+    return receta
+  }
+
+  modificar(id: number, receta: IReceta) {
+    this.data[id] = receta
+  }
 }
