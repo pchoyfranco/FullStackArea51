@@ -12,9 +12,13 @@ import { RouterModule, Routes } from "@angular/router"
 
 const rutas: Routes = [
   { path: "", component: LoginComponent },
-  { path: "listado", component: ListadoComponent },
-  { path: "agregar", component: NuevoComponent },
-  { path: "modificar/:id", component: ModificarComponent },
+  {
+    path: "receta", children: [
+      { path: "", component: ListadoComponent },
+      { path: "agregar", component: NuevoComponent },
+      { path: "modificar/:id", component: ModificarComponent }
+    ]
+  },
   { path: "**", redirectTo: "" }
 ]
 
