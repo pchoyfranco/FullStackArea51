@@ -16,7 +16,7 @@ export class ListadoComponent implements OnInit {
   constructor(private dataService: DataService, private ruta: Router) { }
 
   ngOnInit() {
-    this.data = this.dataService.listar()
+    this.data = <Array<IReceta>>this.dataService.listar()
 
     this.dataService.onCambioData
       .subscribe(

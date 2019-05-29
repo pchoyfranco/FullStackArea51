@@ -21,7 +21,7 @@ export class RecetaComponent implements OnInit {
   }
 
   eliminar() {
-    this.dataService.eliminar(this.indice)
+    this.dataService.eliminarItem(this.indice)
   }
 
   modificar() {

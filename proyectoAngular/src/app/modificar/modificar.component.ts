@@ -24,7 +24,7 @@ export class ModificarComponent implements OnInit {
   }
 
   guardar() {
-    this.dataService.modificar(this.id, this.receta)
+    this.dataService.modificar(this.receta, this.id)
     this.ruta.navigate(["/listado"])
   }
 
