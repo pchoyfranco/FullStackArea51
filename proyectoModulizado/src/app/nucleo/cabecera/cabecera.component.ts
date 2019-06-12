@@ -1,3 +1,4 @@
+import { AuthService } from '../../servicios/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
+  usuarioLogueado: boolean = false
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.usuarioLogueado = this.authService.estaLogueado()
+    this.authService.onCambioEstado.subscribe(
+      estado => this.usuarioLogueado = estado
+    )
+  }
+
+  logout() {
+    this.authService.logout()
   }
 
 }

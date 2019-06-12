@@ -1,3 +1,4 @@
+import { AuthService } from '../../servicios/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   grupo: FormGroup
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.grupo = new FormGroup({
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.authService.login()
     this.router.navigate(["receta"])
   }
 
