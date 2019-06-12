@@ -1,0 +1,5 @@
+<form [formGroup]="grupo" (ngSubmit)="grabar()">
+  <input type="text" name="nombre" placeholder="Nombre" formControlName="nombre">
+  <br>
+  <button [disabled]="!grupo.valid">Grabar</button>
+</form>

@@ -1,0 +1,7 @@
+<form [formGroup]="grupo" (ngSubmit)="login()">
+  <input type="text" formControlName="correo" name="correo">
+  <br>
+  <input type="password" formControlName="contrasena" name="contrasena">
+  <br>
+  <button [disabled]="!grupo.valid">Login</button>
+</form>

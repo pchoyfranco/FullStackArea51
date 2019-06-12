@@ -1,0 +1,10 @@
+<button (click)="nuevo()">Nuevo</button>
+<table>
+  <tr *ngFor="let receta of recetas">
+    <td>{{receta.titulo}}</td>
+    <td>
+      <button (click)="eliminar(receta._id)">Eliminar</button>
+      <button (click)="editar(receta._id)">Editar</button>
+    </td>
+  </tr>
+</table>
