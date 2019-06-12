@@ -4,8 +4,13 @@ import { tap, retry, catchError } from "rxjs/operators"
 
 export class AppInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    let token = ""
 
-    let peticionClonada = req.clone()
+    if (sessionStorage.getItem("token")) {
+      token = "Bearer " + sessionStorage.getItem("token")
+    }
+
+    let peticionClonada = req.clone({ headers: req.headers.append("Authorization", token) })
 
     return next.handle(peticionClonada)
       .pipe(

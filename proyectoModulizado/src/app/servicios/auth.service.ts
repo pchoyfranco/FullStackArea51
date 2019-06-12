@@ -13,6 +13,7 @@ export class AuthService {
 
   login() {
     sessionStorage.setItem("usuarioLogueado", "si")
+    sessionStorage.setItem("token", "xayx22Tuv")
     this.logueado = true
     this.onCambioEstado.next(true)
   }

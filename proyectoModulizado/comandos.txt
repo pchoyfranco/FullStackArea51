@@ -1,0 +1,18 @@
+ng g m nucleo --routing
+ng g m receta --routing
+ng g m ingrediente --routing
+ng g c nucleo/login
+ng g c nucleo/cabecera
+ng g c receta/listado
+ng g c receta/nuevo
+ng g c receta/modificar
+ng g c ingrediente/listado
+ng g c ingrediente/nuevo
+ng g c ingrediente/modificar
+ng g s servicios/receta
+ng g s servicios/ingrediente
+ng g s servicios/auth
+ng g g servicios/auth
+ng g interface modelos/receta
+ng g interface modelos/ingrediente
+ng g class servicios/generico

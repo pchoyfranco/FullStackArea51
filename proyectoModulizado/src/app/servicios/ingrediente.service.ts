@@ -9,6 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class IngredienteService extends GenericoService {
 
   constructor(http: HttpClient) {
-    super("http://clase.tibajodemanda.com/ingrediente", http)
+    super("/ingrediente", http)
   }
 }

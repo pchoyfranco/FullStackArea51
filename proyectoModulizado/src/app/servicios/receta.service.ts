@@ -8,6 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class RecetaService extends GenericoService {
 
   constructor(http: HttpClient) {
-    super("http://clase.tibajodemanda.com/receta", http)
+    super("/receta", http)
   }
 }

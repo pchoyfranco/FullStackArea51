@@ -1,11 +1,15 @@
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export class GenericoService {
   http: HttpClient
-  constructor(private urlApiRest: string, http: HttpClient) {
+  urlApiRest: string
+
+  constructor(endpoint: string, http: HttpClient) {
     this.http = http
+    this.urlApiRest = `${environment.urlApiRest}${endpoint}`
   }
 
   listar(): Observable<any[]> {
