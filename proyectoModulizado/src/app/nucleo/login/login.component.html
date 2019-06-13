@@ -1,7 +1,28 @@
-<form [formGroup]="grupo" (ngSubmit)="login()">
-  <input type="text" formControlName="correo" name="correo">
-  <br>
-  <input type="password" formControlName="contrasena" name="contrasena">
-  <br>
-  <button [disabled]="!grupo.valid">Login</button>
-</form>
+<div class="row justify-content-center mt-5">
+  <form class="col-5" [formGroup]="grupo" (ngSubmit)="login()">
+    <h1>Login</h1>
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="correo"
+        name="correo"
+        class="form-control"
+        placeholder="Correo"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="contrasena"
+        name="contrasena"
+        class="form-control"
+        placeholder="Contraseña"
+      />
+    </div>
+    <div>
+      <button [disabled]="!grupo.valid" class="btn btn-success btn-block">
+        LOGIN
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,10 +1,27 @@
-<button (click)="nuevo()">Nuevo</button>
-<table>
-  <tr *ngFor="let receta of recetas">
-    <td>{{receta.titulo}}</td>
-    <td>
-      <button (click)="eliminar(receta._id)">Eliminar</button>
-      <button (click)="editar(receta._id)">Editar</button>
-    </td>
-  </tr>
-</table>
+<div class="row justify-content-center mt-5">
+  <div class="col-8">
+    <button (click)="nuevo()" class="btn btn-primary mb-5 btn-block">
+      NUEVO
+    </button>
+    <table class="table table-bordered table-hover table-striped col-12">
+      <thead class="thead-dark">
+        <tr>
+          <th>Título</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr *ngFor="let receta of recetas">
+        <td>{{ receta.titulo }}</td>
+        <td class="text-center">
+          <button (click)="eliminar(receta._id)" class="btn btn-danger">
+            Eliminar
+          </button>
+          &nbsp;
+          <button (click)="editar(receta._id)" class="btn btn-warning">
+            Editar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
