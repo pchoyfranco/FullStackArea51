@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IngredienteService } from 'src/app/servicios/ingrediente.service';
 import { Router } from '@angular/router';
+import { canDeactivateFunction } from 'src/app/canDeactivateFunction.interface';
 
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css']
 })
-export class NuevoComponent implements OnInit {
-  grupo: FormGroup
+export class NuevoComponent implements OnInit, canDeactivateFunction {
+  grupo: FormGroup;
+  dataOriginal: any;
 
   constructor(private ingredienteService: IngredienteService, private router: Router) { }
 
@@ -17,6 +19,7 @@ export class NuevoComponent implements OnInit {
     this.grupo = new FormGroup({
       nombre: new FormControl(null, Validators.required)
     })
+    this.dataOriginal = this.grupo.getRawValue();
   }
 
   grabar() {
@@ -26,4 +29,16 @@ export class NuevoComponent implements OnInit {
       )
   }
 
+  canDeactivateData(): boolean {
+    const dataActual = this.grupo.getRawValue();
+
+    let cambio = false;
+
+    for(const prop in dataActual){
+      if (this.dataOriginal[prop] !== dataActual[prop]){
+        cambio = true;
+      }
+    }
+    return cambio;
+  }
 }
